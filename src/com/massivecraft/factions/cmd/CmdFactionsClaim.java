@@ -21,7 +21,7 @@ public class CmdFactionsClaim extends FCommand
 		this.addAliases("claim");
 		
 		this.addOptionalArg("radius", "1");
-		this.addOptionalArg("faction", "you");
+		this.addOptionalArg("company", "you");
 		
 		this.addRequirements(ReqFactionsEnabled.get());
 		this.addRequirements(ReqIsPlayer.get());
