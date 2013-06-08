@@ -28,9 +28,9 @@ public class CmdFactionsFaction extends FCommand
 {
 	public CmdFactionsFaction()
 	{
-		this.addAliases("f", "faction");
+		this.addAliases("c", "company");
 		
-		this.addOptionalArg("faction", "you");
+		this.addOptionalArg("company", "you");
 		
 		this.addRequirements(ReqFactionsEnabled.get());
 		this.addRequirements(ReqHasPerm.get(Perm.FACTION.node));
@@ -44,12 +44,12 @@ public class CmdFactionsFaction extends FCommand
 		if (faction == null) return;
 		
 		// Data precalculation 
-		UConf uconf = UConf.get(faction);
+		UConf uconf = UConf.get(company);
 		//boolean none = faction.isNone();
 		boolean normal = faction.isNormal();
 		
 		// INFO: Title
-		msg(Txt.titleize(Txt.upperCaseFirst(faction.getUniverse()) + " Faction " + faction.getName(usender)));
+		msg(Txt.titleize(Txt.upperCaseFirst(faction.getUniverse()) + " Company " + faction.getName(usender)));
 		
 		// INFO: Description
 		msg("<a>Description: <i>%s", faction.getDescription());	
@@ -112,7 +112,7 @@ public class CmdFactionsFaction extends FCommand
 			
 			if (faction.getFlag(FFlag.PEACEFUL))
 			{
-				msg("<a>This faction is peaceful - in truce with everyone.");
+				msg("<a>This company is peaceful - in truce with everyone.");
 			}
 		}
 		
@@ -131,7 +131,7 @@ public class CmdFactionsFaction extends FCommand
 		}
 		
 		sendMessage(Txt.parse("<a>Allies: ") + Txt.implode(relationNames.get(Rel.ALLY), sepparator));
-		sendMessage(Txt.parse("<a>Enemies: ") + Txt.implode(relationNames.get(Rel.ENEMY), sepparator));
+		sendMessage(Txt.parse("<a>Compeditors: ") + Txt.implode(relationNames.get(Rel.ENEMY), sepparator));
 		
 		// List the followers...
 		List<String> followerNamesOnline = new ArrayList<String>();
