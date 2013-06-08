@@ -37,7 +37,7 @@ public abstract class FCommand extends MCommand
 	{
 		if ( ! i.getFaction().equals(you.getFaction()))
 		{
-			i.sendMessage(Txt.parse("%s <b>is not in the same faction as you.",you.describeTo(i, true)));
+			i.sendMessage(Txt.parse("%s <b>is not in the same company as you.",you.describeTo(i, true)));
 			return false;
 		}
 		
@@ -48,7 +48,7 @@ public abstract class FCommand extends MCommand
 		
 		if (you.getRole().equals(Rel.LEADER))
 		{
-			i.sendMessage(Txt.parse("<b>Only the faction leader can do that."));
+			i.sendMessage(Txt.parse("<b>Only the company owner can do that."));
 		}
 		else if (i.getRole().equals(Rel.OFFICER))
 		{
@@ -58,12 +58,12 @@ public abstract class FCommand extends MCommand
 			}
 			else
 			{
-				i.sendMessage(Txt.parse("<b>Moderators can't control each other..."));
+				i.sendMessage(Txt.parse("<b>Devs can't control each other..."));
 			}
 		}
 		else
 		{
-			i.sendMessage(Txt.parse("<b>You must be a faction moderator to do that."));
+			i.sendMessage(Txt.parse("<b>You must be a company dev to do that."));
 		}
 		
 		return false;
